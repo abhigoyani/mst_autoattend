@@ -1,0 +1,8 @@
+README.md
+setup.py
+mstautoattend.egg-info/PKG-INFO
+mstautoattend.egg-info/SOURCES.txt
+mstautoattend.egg-info/dependency_links.txt
+mstautoattend.egg-info/entry_points.txt
+mstautoattend.egg-info/requires.txt
+mstautoattend.egg-info/top_level.txt
