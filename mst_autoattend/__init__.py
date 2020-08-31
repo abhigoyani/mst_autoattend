@@ -1,16 +1,18 @@
+import os
+import sys
+from datetime import datetime
+from random import randint
+from time import sleep
+
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from webdriver_manager.chrome import ChromeDriverManager
+
 from .credentials import load_credentials, login
-from time import sleep
-from datetime import datetime
-import os
-import sys
+from .pretty_printer import print_msg, print_help
 from .wait_and_find import *
-from .pretty_printer import print_msg
-from random import randint
 
 minRandomJoinLeaveWait = 10
 maxRandomJoinLeaveWait = 180
@@ -117,6 +119,10 @@ def init(step=0):
 
 def main():
     global browser, data
+    
+    if len(sys.argv) > 1 and sys.argv[1] == "--help":
+        print_help()
+        return
     
     if len(sys.argv) > 1 and sys.argv[1] == "--reset":
         print_msg("config reset requested by user...", "WARNING")

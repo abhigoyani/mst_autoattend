@@ -24,6 +24,8 @@ The script requires the following before installation:
 
 To install the script use `pip install mst_autoattend`
 
+NOTE: For windows please [install pip](https://phoenixnap.com/kb/install-pip-windows) and then install the program using pip.
+
 ## Usage:
 
 Run the script using `mst_autoattend` in your terminal. On the first run, the script would ask for basic configuration which is stored and used in the subsequent runs.

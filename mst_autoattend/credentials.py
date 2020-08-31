@@ -1,10 +1,12 @@
-import pathlib
 import json
-from .wait_and_find import *
-from .pretty_printer import print_msg
-from selenium.webdriver.chrome.options import Options
+import pathlib
+
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+
+from .pretty_printer import print_msg
+from .wait_and_find import *
 
 timeOutDelay = 30   # increase if you have a slow internet connection
 
