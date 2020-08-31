@@ -149,7 +149,7 @@ def main():
                 print_msg("failed to check meeting activity", "WARNING")
                 browser.get('https://teams.microsoft.com/_#/calendarv2')    # open calendar tab in teams
             else:
-                print_msg("checking teams activity again in {}".format(RETRY_WAITOUT), "INFO")
+                print_msg("checking teams activity again in {} seconds".format(RETRY_WAITOUT), "INFO")
                 sleep(RETRY_WAITOUT)
 
 if __name__ == "__main__":

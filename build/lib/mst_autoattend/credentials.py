@@ -8,7 +8,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from .pretty_printer import print_msg
 from .wait_and_find import *
 
-timeOutDelay = 10   # increase if you have a slow internet connection
+wrongPasswordWaitDelay = 5
+timeOutDelay = 30   # increase if you have a slow internet connection
 
 CREDENTIALS_FILE_PATH = pathlib.Path.home() / '.msteams_class_attender'
 
@@ -27,10 +28,11 @@ def login(data, check=False, browser=None):
     wait_and_find_ele_by_id(browser, 'i0118', timeOutDelay).send_keys(data['password'])      # enter password
     wait_and_find_ele_by_id(browser, 'idSIButton9', timeOutDelay).click()                    # click next
     print_msg("password entered", "DEBUG")
-    pass_error = wait_and_find_ele_by_id(browser, 'passwordError', timeOutDelay)
+    pass_error = wait_and_find_ele_by_id(browser, 'passwordError', wrongPasswordWaitDelay)
     if pass_error is not None:
         raise Exception(pass_error.get_attribute("innerHTML"))
     if not check:
+        print_msg("clicked to remember password", "DEBUG")
         wait_and_find_ele_by_id(browser, 'idSIButton9', timeOutDelay).click()                    # click yes to stay signed in
     else:
         browser.quit()
