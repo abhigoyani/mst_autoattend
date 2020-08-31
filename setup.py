@@ -34,12 +34,12 @@ install it on Python {}.{}.
 """.format(*(REQUIRED_PYTHON + CURRENT_PYTHON)))
     sys.exit(1)
 
-
 setup(name='mst_autoattend',
-    version='0.1',
+    version='0.11',
     packages=find_packages(),
     description='A tool to attend the MS Team meetings for you!',
     long_description=read('README.md'),
+    long_description_content_type="text/markdown",
     author='Shivam Kumar Jha',
     author_email='coffee@thealphadollar.me',
     url='https://github.com/thealphadollar/MS-Teams-Class-Attender',

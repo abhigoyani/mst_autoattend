@@ -1,8 +1,8 @@
 README.md
 setup.py
 mst_autoattend/__init__.py
-mst_autoattend/__main__.py
 mst_autoattend/credentials.py
+mst_autoattend/pretty_printer.py
 mst_autoattend/wait_and_find.py
 mst_autoattend.egg-info/PKG-INFO
 mst_autoattend.egg-info/SOURCES.txt

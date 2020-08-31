@@ -8,6 +8,7 @@ This python application will automatically join [Microsoft Teams](https://www.mi
 
 The salient features of the application are:
 
+- add a random delay (10s - 180s) between joining and leaving meeting
 - automatically join a meeting if available
 - turn off your camera and microphone
 - it periodically looks for new meetings and joins them

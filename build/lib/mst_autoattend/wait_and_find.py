@@ -1,6 +1,6 @@
 from time import sleep
 
-sleepDelay = 2      # increase if you have a slow internet connection
+sleepDelay = 4      # increase if you have a slow internet connection
 
 def wait_and_find_ele_by_id(browser, id, timeout):
     sleep(sleepDelay)

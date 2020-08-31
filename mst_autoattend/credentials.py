@@ -16,7 +16,7 @@ def login(data, check=False, browser=None):
     if check:
         print_msg("running login test...", "DEBUG")
         opt = Options()
-        # opt.add_argument("headless")
+        opt.add_argument("headless")
         browser = webdriver.Chrome(ChromeDriverManager().install(),options=opt)
         browser.get('https://teams.microsoft.com/_#/calendarv2')
     wait_and_find_ele_by_id(browser, 'i0116', timeOutDelay).send_keys(data['username'])      # enter username
@@ -58,10 +58,10 @@ def load_credentials(reset=False):
             data['username'] = input("Please enter your MS Teams username: ")
             data["password"] = input("Please enter your MS Teams password: ")
             try:
-                print_msg("verifying username and password, please wait for a few minutes...", "DEBUG")
+                print_msg("verifying username and password, please wait for a few minutes...", "INFO")
                 login(data, True)
                 login_success = True
-                print_msg("authenticated successfully", "DEBUG")
+                print_msg("authenticated successfully", "INFO")
             except:
                 print_msg("authenticated failed", "ERROR")
                 continue

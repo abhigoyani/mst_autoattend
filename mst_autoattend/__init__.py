@@ -1,6 +1,5 @@
 import os
 import sys
-from datetime import datetime
 from random import randint
 from time import sleep
 
@@ -140,8 +139,8 @@ def main():
     while step != 2:
         print_msg("initializing session...", "DEBUG")
         step = init(step)
-    print_msg("initialized successfully!", "INFO")
     else:
+        print_msg("initialized successfully!", "INFO")
         while True:
             try:
                 print_msg("checking for meeting activity...", "INFO")
