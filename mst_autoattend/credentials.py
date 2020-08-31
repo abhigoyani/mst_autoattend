@@ -1,6 +1,6 @@
 import pathlib
 import json
-from wait_and_find import *
+from .wait_and_find import *
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager

@@ -7,6 +7,22 @@ from setuptools import setup, find_packages
 CURRENT_PYTHON = sys.version_info[:2]
 REQUIRED_PYTHON = (3, 6)
 
+def read(file_name):
+    """
+    Reads data from file for the description parameter of `setup()`.
+    Parameters
+    ----------
+    file_name: str
+        path to the README.md file.
+    Returns
+    -------
+    str
+        the text contained in the given file.
+    """
+    with open(file_name, mode='r') as readme:
+        return readme.read()
+
+
 # This check and everything above must remain compatible with Python 2.7.
 if CURRENT_PYTHON < REQUIRED_PYTHON:
     sys.stderr.write("""
@@ -21,9 +37,9 @@ install it on Python {}.{}.
 
 setup(name='mst_autoattend',
     version='0.1',
-    package_dir = {'': 'src'},
     packages=find_packages(),
     description='A tool to attend the MS Team meetings for you!',
+    long_description=read('README.md'),
     author='Shivam Kumar Jha',
     author_email='coffee@thealphadollar.me',
     url='https://github.com/thealphadollar/MS-Teams-Class-Attender',
