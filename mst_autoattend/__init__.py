@@ -92,7 +92,11 @@ def checkAndEndOrLeaveOrJoinMeeting():
         print_msg("not in a meeting, looking for a meeting to join...", "DEBUG")
         maxParticipants = curParticipants = 0
         browser.get('https://teams.microsoft.com/_#/calendarv2')
-        checkAndJoinMeeting()
+        try:
+            checkAndJoinMeeting()
+        except Exception as e:
+            print_msg(e, "DEBUG")
+            browser.get('https://teams.microsoft.com/_#/calendarv2')
 
 def init(step=0):
     global minParticipants
@@ -153,10 +157,10 @@ def main():
             try:
                 print_msg("checking for meeting activity...", "INFO")
                 checkAndEndOrLeaveOrJoinMeeting()
-            except:
+            except Exception as e:
+                print_msg(e, "DEBUG")
                 print_msg("failed to check meeting activity", "WARNING")
-                browser.get('https://teams.microsoft.com/_#/calendarv2')    # open calendar tab in teams
-            else:
+            finally:
                 print_msg("checking teams activity again in {} seconds".format(RETRY_WAITOUT), "INFO")
                 sleep(RETRY_WAITOUT)
 
