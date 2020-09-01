@@ -110,8 +110,16 @@ def init(step=0):
         print_msg("opening calendar...", "DEBUG")
         wait_and_find_element_by_xpath(browser, '//button[@title="Switch your calendar view"]', timeOutDelay)
         while wait_and_find_element_by_xpath(browser, '//button[@title="Switch your calendar view"]', timeOutDelay).get_attribute('name') != "Week": # change calender work-week view to week view
-            wait_and_find_element_by_xpath(browser, '//button[@title="Switch your calendar view"]', timeOutDelay).click()
-            wait_and_find_element_by_xpath(browser, '//button[@name="Week"]', timeOutDelay).click()
+            switch_button = wait_and_find_element_by_xpath(browser, '//button[@title="Switch your calendar view"]', timeOutDelay)
+            if switch_button:
+                switch_button.click()
+            else:
+                continue
+            to_week = wait_and_find_element_by_xpath(browser, '//button[@name="Week"]', timeOutDelay)
+            if to_week:
+                to_week.click()
+            else:
+                continue
             print_msg("week view set in calendar", "DEBUG")
         success_step = 2
     return success_step
@@ -137,7 +145,7 @@ def main():
  
     step = 0
     while step != 2:
-        print_msg("initializing session...", "DEBUG")
+        print_msg("initializing session, please wait a few minutes...", "INFO")
         step = init(step)
     else:
         print_msg("initialized successfully!", "INFO")

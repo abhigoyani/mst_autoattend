@@ -35,7 +35,7 @@ install it on Python {}.{}.
     sys.exit(1)
 
 setup(name='mst_autoattend',
-    version='0.12',
+    version='0.14',
     packages=find_packages(),
     description='A tool to attend the MS Team meetings for you!',
     long_description=read('README.md'),

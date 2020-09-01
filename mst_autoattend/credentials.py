@@ -30,6 +30,7 @@ def login(data, check=False, browser=None):
     pass_error = wait_and_find_ele_by_id(browser, 'passwordError', timeOutDelay)
     if pass_error is not None:
         raise Exception(pass_error.get_attribute("innerHTML"))
+    print_msg("password correct, clicking remember signin...", "DEBUG")
     if not check:
         wait_and_find_ele_by_id(browser, 'idSIButton9', timeOutDelay).click()                    # click yes to stay signed in
     else:
