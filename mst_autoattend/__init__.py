@@ -102,7 +102,7 @@ def init(step=0):
     global minParticipants
     print_msg("opening ms teams calendar page...", "DEBUG")
     browser.get('https://teams.microsoft.com/_#/calendarv2')    # open calendar tab in teams
-    minParticipants = data.get('minimumParticipants', minParticipants)
+    minParticipants = int(data.get('minimumParticipants', minParticipants))
     success_step = 0
     # login step
     if step <= 0:
